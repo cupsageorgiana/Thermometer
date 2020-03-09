@@ -1,1 +1,5 @@
-# Thermometer
+Pentru măsurarea temperaturii s-a folosit interfața I2C pentru realizarea transmisiei, astfel: senzorul AST7420 acționează ca și un slave utilizând schema industriei standar de comunicare I2C, iar FPGA acționează la rândul său ca și I2C master. Pentru a comunica cu slave-ul (ADT7420), I2C master(placa Nexys4DDR) trebuie să specifice adresa acestuia( 0x48) și un flag, indicând dacă comunicarea reprezintă o operație de citire(1) sau una de scriere(0). Odată ce specificațiile pentru comunicare sunt stabilite are loc un transfer de date.   
+
+Pentru afișarea temperaturii pe afișorul plăcuței a fost nevoie de un Display șapte segmente. Valoarea citită cu ajutorul senzorului a fost transmisă intrărilor de la display și afișată pe ecran. Pentru realizarea acestui afișor a fost nevoie de catozi și anozi pentru a putea activa BCD-urile că să permită realizarea transmiterii valorii măsurate. 
+
+Pentru scrierea cifrelor s-a utilizat BCD-ul format din catozi activi pe 0 logic și pentru aprinderea celor 8 afișoare de care dispune placa.
